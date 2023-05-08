@@ -94,7 +94,10 @@ if uploaded_file is not None:
 
      # Correlation matrix
     if st.checkbox("Show correlation matrix of Military Data"):
+        data = data.drop('country', axis=1)
         corr_matrix = data.corr()
+
+        
         st.write(corr_matrix)
         
         plt.figure(figsize=(10, 8))
