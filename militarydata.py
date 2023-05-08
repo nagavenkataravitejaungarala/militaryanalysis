@@ -75,14 +75,11 @@ if uploaded_file is not None:
   
     
    
-    fill_type = st.radio("Select the fill type for null values:", options=["mean", "bfill", "ffill","fill"])
+    fill_type = st.radio("Select the fill type for null values:", options=[ "bfill", "ffill","fill"])
     data['ffiiina'] = np.random.randint(1, 10, size=len(data))
     data['bfillna'] = data['Reserve military'].fillna(method='bfill')
-    if fill_type == "mean":
-        data.fillna(data.mean(), inplace=True)
-        st.write("Null values filled with mean values.")
-        st.write(data)
-    elif fill_type == "bfill":
+    
+    if fill_type == "bfill":
         data.fillna(method='bfill', inplace=True)
         st.write("Null values filled with backward fill method.")
         st.write(data)
