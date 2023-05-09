@@ -13,7 +13,7 @@ logo = Image.open('logo.png')
 st.set_page_config(page_title="MILITARY DATA EDA", page_icon=":bar_chart:", layout="wide")
 st.image(logo)
 # Define the list of names
-names = ["21A21A6159-U.N.V RAVITEJA", "21A21A6106-B.MANIKANTA", "21A21A6105-B.VINAY BHASKAR","21A21A6150-R.POOJA SRI","22A21A6106-V.SAI GANESH","21A21A6153-SK.N.KHASIM","21A21A6117-J.VENKATA LAKSHMI","21A21A6109-D.PREM KUMAR"]
+names = ["21A21A6159-U.N.V RAVITEJA", "21A21A6106-B.MANIKANTA", "21A21A6105-B.VINAY BHASKAR","21A21A6150-R.POOJA SRI","22A25A6106-V.SAI GANESH","21A21A6134-L.MEGHA SYAM,"21A21A6153-SK.N.KHASIM","21A21A6117-J.VENKATA LAKSHMI","21A21A6109-D.PREM KUMAR"]
 st.title("EXPLORATORY DATA ANALYSIS ON MILITARY DATASET")
 # Add the names to the sidebar
 st.sidebar.title("Project Team Members:")
@@ -31,7 +31,11 @@ if uploaded_file is not None:
     st.title("military Data Analysis")
 
 
+    if st.checkbox("Show count of non-null values"):
+        st.write(data.count())
 
+    if st.checkbox("Show all Null Values"):
+        st.write(data.isnull().sum())
     # Display data
     if st.checkbox("Show data"):
         st.write(data.head())
@@ -56,11 +60,7 @@ if uploaded_file is not None:
         #data = data.astype(str)
         #st.dataframe(data.dtypes)
 
-    if st.checkbox("Show count of non-null values"):
-        st.write(data.count())
-
-    if st.checkbox("Show all Null Values"):
-        st.write(data.isnull().sum())
+    
 
     # Remove column with missing values
     
